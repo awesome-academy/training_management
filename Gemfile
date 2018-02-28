@@ -18,6 +18,10 @@ gem "redis", "~> 3.0"
 gem "bcrypt", "~> 3.1.7"
 gem "capistrano-rails", group: :development
 gem "devise"
+gem "jquery-rails"
+gem "bootstrap", "~> 4.0.0"
+gem "font-awesome-sass", "~> 4.7.0"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

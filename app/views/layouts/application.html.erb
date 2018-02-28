@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TrainingManagement</title>
+    <title><%= t "views.application.tittle" %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  "application", media: "all", 'data-turbolinks-track': "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <%= render "layouts/header" %>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
   </body>
+  <%= javascript_include_tag "application" %>
 </html>
