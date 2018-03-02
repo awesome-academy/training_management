@@ -1,27 +1,36 @@
 en:
-  views:
-    application:
-      tittle: "TrainingManagement"
+  courses:
+    new:
+      success: "Success"
+      course_name: "Course name"
+      start_date: "Start date"
+      end_date: "End date"
 
-    login:
-      Login: "Login"
-      Email: "Email address"
-      Password: "Password"
-      Remember_Password: "Remember Password"
-      Forgot_Password: "Forgot Password?"
+  application:
+    tittle: "TrainingManagement"
 
-    layouts:
-     header:
-      Dashboard: "Dashboard"
-      Logo: "Admin"
-      Messages: "Messages"
-      Alerts: "Alerts"
-      New Alerts: "New Alerts:"
-      Logout: "Logout"
+  login:
+    Login: "Login"
+    Email: "Email address"
+    Password: "Password"
+    Remember_Password: "Remember Password"
+    Forgot_Password: "Forgot Password?"
 
-    courses:
-      new:
+  layouts:
+   header:
+    Dashboard: "Dashboard"
+    Logo: "Admin"
+    Messages: "Messages"
+    Alerts: "Alerts"
+    New Alerts: "New Alerts:"
+    Logout: "Logout"
+
+  admin:
+    users:
+      index:
+        newuser: "New User"
         success: "Success"
-        course_name: "Course name"
-        start_date: "Start date"
-        end_date: "End date"
+      new:
+        Create User: "Create User"
+        password: "Password"
+        confirm: "Password Confirmation"

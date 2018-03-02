@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :courses
 
+  namespace :admin do
+    root "users#index"
+    resources :users
+    resources :courses, :subjects
+  end
+
 end
