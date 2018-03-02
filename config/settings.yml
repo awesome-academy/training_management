@@ -1,2 +1,4 @@
 email:
   maximum: 255
+page:
+  maximum: 10
