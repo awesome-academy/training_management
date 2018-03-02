@@ -5,23 +5,23 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 5.1.4"
-gem "sqlite3"
-gem "puma", "~> 3.7"
-gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
-gem "therubyracer", platforms: :ruby
-gem "coffee-rails", "~> 4.2"
-gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.5"
-gem "redis", "~> 3.0"
 gem "bcrypt", "~> 3.1.7"
-gem "capistrano-rails", group: :development
-gem "devise"
-gem "jquery-rails"
 gem "bootstrap", "~> 4.0.0"
-gem "font-awesome-sass", "~> 4.7.0"
+gem "capistrano-rails", group: :development
+gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "devise"
+gem "font-awesome-sass", "~> 4.7.0"
+gem "jbuilder", "~> 2.5"
+gem "jquery-rails"
+gem "puma", "~> 3.7"
+gem "rails", "~> 5.1.4"
+gem "redis", "~> 3.0"
+gem "sass-rails", "~> 5.0"
+gem "sqlite3"
+gem "therubyracer", platforms: :ruby
+gem "turbolinks", "~> 5"
+gem "uglifier", ">= 1.3.0"
 gem "will_paginate", ">= 3.0"
 
 group :development, :test do
