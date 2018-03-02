@@ -2,6 +2,7 @@ en:
   views:
     application:
       tittle: "TrainingManagement"
+
     login:
       Login: "Login"
       Email: "Email address"
@@ -17,3 +18,10 @@ en:
       Alerts: "Alerts"
       New Alerts: "New Alerts:"
       Logout: "Logout"
+
+    courses:
+      new:
+        success: "Success"
+        course_name: "Course name"
+        start_date: "Start date"
+        end_date: "End date"

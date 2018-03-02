@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180226135532) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "name"
+    t.string "course_name"
     t.integer "trainee_number"
     t.datetime "start_date"
     t.datetime "end_date"
