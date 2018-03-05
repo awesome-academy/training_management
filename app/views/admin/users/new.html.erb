@@ -1,0 +1,28 @@
+<h2><%= t "admin.users.new.Create User"  %></h2>
+
+<%= form_for [:admin, @user] do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "user@exlample.com" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.select :role, User.roles.keys.to_a  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", placeholder: (t "admin.users.new.password") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: (t "admin.users.new.confirm") %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t "admin.users.new.Create User" %>
+  </div>
+<% end %>

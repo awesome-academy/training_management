@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :user_course
   has_many :courses, through: :user_course
+
+  enum role: [:admin, :trainer, :trainee]
 end
