@@ -30,7 +30,11 @@ en:
       index:
         newuser: "New User"
         success: "Success"
+        admin: "Admin"
+        trainers: "Trainers"
+        trainees: "Trainees"
       new:
         Create User: "Create User"
         password: "Password"
         confirm: "Password Confirmation"
+

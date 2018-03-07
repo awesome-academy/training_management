@@ -1,1 +1,21 @@
+<h1><%= t "admin.users.index.admin" %></h1>
+<% @admin.each do |admin| %>
+  <tr>
+   <%= admin.email %><br />
+  </tr>
+<% end %>
+
+<h1><%= t "admin.users.index.trainers" %></h1>
+<% @trainers.each do |trainers| %>
+  <tr>
+   <%= trainers.email %><br />
+  </tr>
+<% end %>
+
+<h1><%= t "admin.users.index.trainees" %></h1>
+<% @trainees.each do |trainees| %>
+  <tr>
+   <%= trainees.email %><br />
+  </tr>
+<% end %>
 <%= link_to t("admin.users.index.newuser"), new_admin_user_path %>

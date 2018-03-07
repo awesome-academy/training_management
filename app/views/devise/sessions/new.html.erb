@@ -1,26 +1,37 @@
-<h2>Log in</h2>
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header"><%= t "devise.sessions.new.SignIn" %></div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control",
+             id: "exampleInputEmail1", placeholder: (t"devise.sessions.new.email") %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off",class: "form-control",
+             id: "exampleInputPassword1", placeholder: (t"devise.sessions.new.password") %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <% if devise_mapping.rememberable? -%>
+          <div class="form-group">
+            <div class="form-check">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          </div>
+          <% end -%>
+          <div class="text-center">
+            <%= f.submit (t "devise.sessions.new.SignIn"), class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit t "devise.sessions.new.SignIn" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
