@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="#"><%= t "views.layouts.header.Logo" %></a>
+  <%= link_to (t ".Logo"), root_path, :class => "navbar-brand" %>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-        <a class="nav-link" href="#">
-          <i class="fa fa-fw fa-dashboard"></i>
-          <span class="nav-link-text"><%= t "views.layouts.header.Dashboard" %></span>
-        </a>
+
+        <%= link_to (t ".Dashboard"), root_path, class: "nav-link-text nav-link" %>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Subject">
+
+        <%= link_to (t "admin.layouts.header.Subject"), subjects_path, class: "nav-link-text nav-link" %>
       </li>
     </ul>
     <ul class="navbar-nav sidenav-toggler">
@@ -23,7 +25,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-fw fa-envelope"></i>
-          <span class="d-lg-none"><%= t "views.layouts.header.Messages" %>
+          <span class="d-lg-none"><%= t ".Messages" %>
             </span>
           <span class="indicator text-primary d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>
@@ -33,14 +35,14 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-fw fa-bell"></i>
-          <span class="d-lg-none"><%= t "views.layouts.header.Alerts" %>
+          <span class="d-lg-none"><%= t ".Alerts" %>
             </span>
           <span class="indicator text-warning d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>
             </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-          <h6 class="dropdown-header"><%= t "views.layouts.header.New Alerts" %></h6>
+          <h6 class="dropdown-header"><%= t ".New_Alerts" %></h6>
           <div class="dropdown-divider"></div>
         </div>
       </li>
@@ -58,9 +60,13 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to(t("views.layouts.header.Logout"), destroy_user_session_path, class: "nav-link",  method: :delete) %>
+          <%= link_to(t(".Logout"), destroy_user_session_path, class: "nav-link",  method: :delete) %>
         </li>
       <% end %>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-fw fa-sign-out"></i><%= t ".Logout" %></a>
+      </li>
     </ul>
   </div>
 </nav>

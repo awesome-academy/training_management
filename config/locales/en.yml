@@ -22,7 +22,7 @@ en:
     Logo: "Admin"
     Messages: "Messages"
     Alerts: "Alerts"
-    New Alerts: "New Alerts:"
+    New_Alerts: "New Alerts:"
     Logout: "Logout"
 
   admin:
@@ -38,3 +38,45 @@ en:
         password: "Password"
         confirm: "Password Confirmation"
 
+    layouts:
+     header:
+      Dashboard: "Dashboard"
+      Subject: "Subject"
+      Logo: "Admin"
+      Messages: "Messages"
+      Alerts: "Alerts"
+      New Alerts: "New Alerts:"
+      Logout: "Logout"
+
+    static_pages:
+     home:
+      student: "Student"
+      my_dashboard: "My Dashboard"
+      view_detail: "View Details"
+      course: "Course"
+      subject: "Subject"
+      trainer: "Trainer"
+
+    courses:
+     new:
+      success: "Success"
+      course_name: "Course name"
+      start_date: "Start date"
+      end_date: "End date"
+
+    subjects:
+     new:
+      success: "Finish Create Subject"
+      subject_name: "Subject Name"
+      subject_list: "Subject List"
+      action: "Action"
+      show: "Show"
+      edit_subject: "Edit"
+      destroy_subject: "Destroy"
+      mess_subject: "Are you sure.. ?"
+      new_subject: "New Subject"
+      back_list: "Back to List"
+      task: "Task"
+      remove: "Remove"
+      add_task: "Add Task"
+      submit: "Submit"

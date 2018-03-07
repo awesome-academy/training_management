@@ -1,0 +1,10 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t "layouts.header.Dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= t "admin.subjects.new.new_subject" %></li>
+</ol>
+
+<%= render partial: "form" %>
+
+<p><%= link_to (t "admin.subjects.new.back_list"), subjects_path %></p>

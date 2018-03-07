@@ -22,6 +22,8 @@ gem "jquery-rails"
 gem "bootstrap", "~> 4.0.0"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "config"
+gem "will_paginate", ">= 3.0"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
