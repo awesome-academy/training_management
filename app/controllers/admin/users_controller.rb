@@ -1,7 +1,9 @@
 class Admin::UsersController < ApplicationController
-  before_action :ensure_admin
 
   def index
+    @trainees = User.by_role User.roles[:trainee]
+    @trainers = User.by_role User.roles[:trainer]
+    @admin = User.by_role User.roles[:admin]
 
   end
 
@@ -21,12 +23,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-
-  def ensure_admin
-    unless current_user.admin?
-      redirect_to root_url
-    end
-  end
 
   def user_params
     params.require(:user).permit :email, :password, :password_confirmation, :role
