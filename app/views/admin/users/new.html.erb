@@ -1,32 +1,10 @@
-<div class="container">
-  <div class="card card-register mx-auto mt-5">
-    <div class="card-header"><%= t "admin.users.new.Create User"  %></div>
-    <div class="card-body">
-      <%= form_for [:admin, @user] do |f| %>
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "user@exlample.com",
-            class: "form-control", id: "exampleInputEmail1" %>
-        </div>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t "layouts.header.dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= t "admin.users.new.create_user"%></li>
+</ol>
 
-        <div class="form-group">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", placeholder: (t "admin.users.new.password"),
-           class: "form-control", id: "exampleInputPassword1" %>
-        </div>
+<%= render partial: "form" %>
 
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: (t "admin.users.new.confirm"), class: "form-control", id: "exampleConfirmPassword"%>
-        </div>
 
-        <div class="form-group">
-          <%= f.label :role %><br />
-          <%= f.select :role, User.roles.keys.to_a, class: "form-control" %>
-        </div>
-        <%= f.submit (t "admin.users.new.Create User"), class: "btn btn-primary btn-block" %>
-      <% end %>
-      </div>
-    </div>
-  </div>
-</div>

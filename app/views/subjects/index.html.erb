@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <%= link_to (t "views.layouts.header.Dashboard"), root_path %>
+    <%= link_to (t "views.layouts.header.dashboard"), root_path %>
   </li>
   <li class="breadcrumb-item active"><%= t "views.subjects.new.subject_list" %></li>
 </ol>
@@ -8,13 +8,12 @@
 <table class="table table-hover">
   <thead>
   <tr>
-    <th><%= t "views.subjects.new.subject_name" %></th>
-    <th></th>
-    <th><%= t "views.subjects.new.action" %></th>
-    <th></th>
+    <td><%= t "views.subjects.new.subject_name" %></th>
+    <td></th>
+    <td><%= t "views.subjects.new.action" %></th>
+    <td></th>
   </tr>
   </thead>
-  <tfoot>
     <tbody>
     <%= render @subjects %>
   </tbody>

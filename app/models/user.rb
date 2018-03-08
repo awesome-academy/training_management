@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :courses, through: :user_course
 
   enum role: [:admin, :trainer, :trainee]
-  scope :by_role, ->(role){where role: role}
   before_save {self.email = email.downcase}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: Settings.email.maximum},
