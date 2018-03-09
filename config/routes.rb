@@ -12,4 +12,16 @@ Rails.application.routes.draw do
     resources :courses, :subjects
   end
 
+  namespace :trainer do
+    root "trainer#index"
+    resources :users
+    resources :courses, :subjects
+  end
+
+  namespace :trainee do
+    root "trainee#index"
+    resources :users
+    resources :courses, :subjects
+  end
+
 end

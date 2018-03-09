@@ -1,21 +1,29 @@
-<h1><%= t "admin.users.index.admin" %></h1>
-<% @admin.each do |admin| %>
-  <tr>
-   <%= admin.email %><br />
-  </tr>
-<% end %>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t "views.layouts.header.Dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= t "admin.users.index.users" %></li>
+</ol>
 
-<h1><%= t "admin.users.index.trainers" %></h1>
-<% @trainers.each do |trainers| %>
-  <tr>
-   <%= trainers.email %><br />
-  </tr>
-<% end %>
-
-<h1><%= t "admin.users.index.trainees" %></h1>
-<% @trainees.each do |trainees| %>
-  <tr>
-   <%= trainees.email %><br />
-  </tr>
-<% end %>
-<%= link_to t("admin.users.index.newuser"), new_admin_user_path %>
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t"layouts.header.all_users" %></div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t"admin.users.index.email" %></th>
+            <th><%= t"admin.users.index.role" %></th>
+            <th><%=  t"admin.users.index.action"%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @users %>
+        </tbody>
+      </table>
+    </div>
+    <p><%= will_paginate @users %></p>
+    <%= link_to (t"admin.user.new.create_user"), new_admin_user_url, class: "btn btn-success" %>
+  </div>
+</div>

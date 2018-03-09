@@ -10,20 +10,21 @@ en:
     tittle: "TrainingManagement"
 
   login:
-    Login: "Login"
-    Email: "Email address"
-    Password: "Password"
-    Remember_Password: "Remember Password"
-    Forgot_Password: "Forgot Password?"
+    login: "Login"
+    email: "Email address"
+    password: "Password"
+    remember_password: "Remember Password"
+    forgot_password: "Forgot Password?"
 
   layouts:
    header:
-    Dashboard: "Dashboard"
-    Logo: "Admin"
-    Messages: "Messages"
-    Alerts: "Alerts"
-    New_Alerts: "New Alerts:"
-    Logout: "Logout"
+    dashboard: "Dashboard"
+    logo: "Admin"
+    messages: "Messages"
+    alerts: "Alerts"
+    new_alerts: "New Alerts:"
+    logout: "Logout"
+    all_users: "All Users"
 
   admin:
     users:
@@ -34,19 +35,20 @@ en:
         trainers: "Trainers"
         trainees: "Trainees"
       new:
-        Create User: "Create User"
+        create_user: "Create User"
         password: "Password"
         confirm: "Password Confirmation"
+        delete: "Delete"
 
     layouts:
      header:
-      Dashboard: "Dashboard"
-      Subject: "Subject"
-      Logo: "Admin"
-      Messages: "Messages"
-      Alerts: "Alerts"
-      New Alerts: "New Alerts:"
-      Logout: "Logout"
+      dashboard: "Dashboard"
+      subject: "Subject"
+      logo: "Admin"
+      messages: "Messages"
+      alerts: "Alerts"
+      new alerts: "New Alerts:"
+      logout: "Logout"
 
     static_pages:
      home:

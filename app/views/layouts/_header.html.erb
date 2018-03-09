@@ -6,26 +6,31 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-
-        <%= link_to (t ".Dashboard"), root_path, class: "nav-link-text nav-link" %>
+        <%= link_to (t ".dashboard"), root_path, class: "nav-link-text nav-link" %>
       </li>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Subject">
 
-        <%= link_to (t "admin.layouts.header.Subject"), subjects_path, class: "nav-link-text nav-link" %>
+        <%= link_to (t "admin.layouts.header.subject"), subjects_path, class: "nav-link-text nav-link" %>
       </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right">
+          <%= link_to admin_root_path, class: "nav-link" do %>
+            <i class="fa fa-fw fa-dashboard"></i><%= t"layouts.header.all_users " %>
+          <% end %>
+        </li>
+          <% end %>
+        <% end %>
     </ul>
-    <ul class="navbar-nav sidenav-toggler">
-      <li class="nav-item">
-        <a class="nav-link text-center" id="sidenavToggler">
-          <i class="fa fa-fw fa-angle-left"></i>
-        </a>
-      </li>
+
     </ul>
+
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-fw fa-envelope"></i>
-          <span class="d-lg-none"><%= t ".Messages" %>
+          <span class="d-lg-none"><%= t ".messages" %>
             </span>
           <span class="indicator text-primary d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>
@@ -35,14 +40,14 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-fw fa-bell"></i>
-          <span class="d-lg-none"><%= t ".Alerts" %>
+          <span class="d-lg-none"><%= t ".alerts" %>
             </span>
           <span class="indicator text-warning d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>
             </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-          <h6 class="dropdown-header"><%= t ".New_Alerts" %></h6>
+          <h6 class="dropdown-header"><%= t ".new_alerts" %></h6>
           <div class="dropdown-divider"></div>
         </div>
       </li>
@@ -60,13 +65,9 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to(t(".Logout"), destroy_user_session_path, class: "nav-link",  method: :delete) %>
+          <%= link_to(t(".logout"), destroy_user_session_path, class: "nav-link",  method: :delete) %>
         </li>
       <% end %>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-fw fa-sign-out"></i><%= t ".Logout" %></a>
-      </li>
     </ul>
   </div>
 </nav>
