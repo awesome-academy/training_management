@@ -37,9 +37,11 @@ ActiveRecord::Schema.define(version: 20180226135532) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.integer "subject_id"
     t.string "task_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
   create_table "user_courses", force: :cascade do |t|
