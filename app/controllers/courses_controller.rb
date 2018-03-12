@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :find_course, only: [:show, :update]
+  before_action :find_course, only: [:show, :update, :edit]
 
   def index
     @courses = Course.all.order(:course_name).paginate(page: params[:page], per_page: Settings.page.maximum)
@@ -23,15 +23,27 @@ class CoursesController < ApplicationController
     end
   end
 
-  def update
+  def show
   end
 
-  def show
-    @course = Course.find_by id: params[:id]
+  def edit
+    Subject.all.each do |subject|
+      @course.course_subjects.new(subject: subject) unless @course.subjects.include? subject
+    end
   end
+
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = (t ".success")
+      redirect_to course_url @course
+    else
+      flash[:warning] = (t ".failed")
+      redirect_to edit_course_path
+    end
+  end
+
 
   def destroy
-  	
   end
 
   private

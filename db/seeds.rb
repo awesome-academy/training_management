@@ -11,4 +11,4 @@ Subject.all.each do |sb|
   sb.tasks.create task_name: "Task 3"
 end
 
-user = User.create email: "minhtu12394@gmail.com", role: 0, password: "123456789", password_confirmation: "123456789"
+User.create email: "minhtu12394@gmail.com", role: 0, password: "123456789", password_confirmation: "123456789"
