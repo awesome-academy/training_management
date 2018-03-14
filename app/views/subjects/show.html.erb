@@ -1,0 +1,29 @@
+<form class="form-horizontal">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i><%= t "admin.subjects.new.subject_name" %><%= @subject.subject_name %></div>
+    <div class="card-body">
+      <div class="table table-hover" data-spy="scroll">
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="col-xs-2 text-center"></th>
+            <th class="col-xs-8 text-center"><%= t "admin.subjects.new.task" %></th>
+            <th class="col-xs-2 text-center"><%= t "admin.subjects.new.action" %></th>
+          </tr>
+          </thead>
+          <tfoot>
+          <tbody>
+          <%= render "subject_show" %>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= link_to (t "admin.subjects.new.add_task"), edit_subject_path(@subject), class: "btn btn-success" %>
+          <%= link_to (t "admin.subjects.new.destroy_subject"), @subject, confirm: (t "admin.subjects.new.mess_subject"), method: :delete, class: "btn btn-danger" %>
+          <%= link_to (t "admin.subjects.new.view_all"), subjects_path, class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

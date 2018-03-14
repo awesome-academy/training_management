@@ -2,9 +2,11 @@
   <li class="breadcrumb-item">
     <%= link_to (t "layouts.header.dashboard"), root_path %>
   </li>
-  <li class="breadcrumb-item active"><%= t "admin.users.new.create_user"%></li>
+  <li class="breadcrumb-item active"><%= t "admin.users.new.create_user" %></li>
 </ol>
-
 <%= render partial: "form" %>
-
-
+<div class="form-group">
+  <%= f.label :role %><br/>
+  <%= f.select :role, User.roles.keys.to_a, class: "form-control" %>
+</div>
+<%= f.submit t(".create_user"), class: "btn btn-primary btn-block" %>
