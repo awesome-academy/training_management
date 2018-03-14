@@ -14,13 +14,17 @@
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= t ".show_detail" %>
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <% sb.tasks.each do |task| %>
-                <li><%= task.task_name %></li>
+              <% sb.tasks.each do |t| %>
+                <li><%= t.task_name %></li>
               <% end %>
             </ul>
-          </div>
+          </div>  
         </div>
       </li>
     <% end %>
   </ul>
+</div>
+<div class="row">
+  <%= link_to (t ".back"), courses_path, class: "" %>
+  <%= link_to (t ".edit"), edit_course_path, class: "" %>
 </div>

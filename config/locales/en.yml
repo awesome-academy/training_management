@@ -5,15 +5,21 @@ en:
 
   courses:
     new:
-      success: "Success"
       course_name: "Course name"
       start_date: "Start date"
       end_date: "End date"
+    create:
+      success: "Success"
+      fail: "Update failed"
     show:
       start_date: "Start date: "
       end_date: "End date: "
       subjects: "Subjects: "
       not_found: "Not found course with id: "
+      back: "Show all courses"
+      edit: "Edit course"
+    index:
+      trainee_number: "Number of trainee"
 
   application:
     tittle: "TrainingManagement"
