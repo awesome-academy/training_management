@@ -1,0 +1,6 @@
+<tr>
+  <td><%= subject.subject_name %></td>
+  <td><%= link_to (t "admin.subjects.new.show"), admin_subject_path(subject) %></td>
+  <td><%= link_to (t "admin.subjects.new.edit_subject"), edit_admin_subject_path(subject) %></td>
+  <td><%= link_to (t "admin.subjects.new.destroy_subject"), admin_subject_path(subject), :confirm => (t "admin.subjects.new.mess_subject"), :method => :delete %></td>
+</tr>

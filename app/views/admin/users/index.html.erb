@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <%= link_to (t "views.layouts.header.Dashboard"), root_path %>
+    <%= link_to (t "admin.users.index.dashboard"), root_path %>
   </li>
   <li class="breadcrumb-item active"><%= t "admin.users.index.users" %></li>
 </ol>
@@ -24,6 +24,6 @@
       </table>
     </div>
     <p><%= will_paginate @users %></p>
-    <%= link_to (t"admin.user.new.create_user"), new_admin_user_url, class: "btn btn-success" %>
+    <%= link_to (t"admin.users.index.create_user"), new_admin_user_url, class: "btn btn-success" %>
   </div>
 </div>

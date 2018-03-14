@@ -3,6 +3,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
+    @trainees = User.trainee.all
   end
 
   def show
@@ -24,7 +25,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-
     if @user.destroy
       flash[:success] = t ".success"
     else
@@ -37,7 +37,6 @@ class Admin::UsersController < ApplicationController
 
   def find_user
     @user = User.find_by id: params[:id]
-
     return if @user
     flash[:danger] = t ".danger"
     redirect_to admin_root_path

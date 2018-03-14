@@ -1,4 +1,4 @@
-<%= form_for @course do |f| %>
+<%= form_for [:admin, @course] do |f| %>
   <div class="">
     <div class="form-group">
       <%= f.label :course_name, (t ".course_name")%>
@@ -25,7 +25,19 @@
         <% end %>
       </div>
     <% end %>
-    </div>
   </div>
-  <%= f.submit "submit", class: "btn" %>
+
+  <div class="">
+    <%= f.fields_for :user_courses do |ff| %>
+      <div class="">
+        <%= ff.hidden_field :user_id %>
+        <%= ff.label :_destroy do %>
+          <%= ff.check_box :_destroy %><%= ff.object.email %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+  <%= f.submit (t".submit"), class: "btn" %>
 <% end %>
