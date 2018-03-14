@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(version: 20180226135532) do
 
   create_table "course_subjects", force: :cascade do |t|
     t.integer "course_id"
-    t.integer "subjects_id"
+    t.integer "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_subjects_on_course_id"
-    t.index ["subjects_id"], name: "index_course_subjects_on_subjects_id"
+    t.index ["subject_id"], name: "index_course_subjects_on_subject_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20180226135532) do
 
   create_table "user_subjects", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "subjects_id"
+    t.integer "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subjects_id"], name: "index_user_subjects_on_subjects_id"
+    t.index ["subject_id"], name: "index_user_subjects_on_subject_id"
     t.index ["user_id"], name: "index_user_subjects_on_user_id"
   end
 
