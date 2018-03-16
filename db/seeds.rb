@@ -12,3 +12,4 @@ Subject.all.each do |sb|
 end
 
 User.create email: "minhtu12394@gmail.com", role: 0, password: "123456789", password_confirmation: "123456789"
+User.create email: "admin@gmail.com", role: 0, password: "123123", password_confirmation: "123123"

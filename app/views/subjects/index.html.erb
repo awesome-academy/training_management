@@ -5,19 +5,26 @@
   <li class="breadcrumb-item active"><%= t "views.subjects.new.subject_list" %></li>
 </ol>
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <td><%= t "views.subjects.new.subject_name" %></th>
-    <td></th>
-    <td><%= t "views.subjects.new.action" %></th>
-    <td></th>
-  </tr>
-  </thead>
-    <tbody>
-    <%= render @subjects %>
-  </tbody>
-</table>
-
-<p><%= will_paginate @subjects %></p>
-<p><%= link_to (t "views.subjects.new.new_subject"), new_subject_path, class: "btn btn-success" %></p>
+<form class="form-horizontal">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i><%= t "admin.subjects.new.subject_list" %></div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead class="thead-inverse">
+        <tr>
+          <th></th>
+          <th class="text-center"><%= t "views.subjects.new.subject_name" %></th>
+          <th class="text-center"><%= t "views.subjects.new.action" %></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tbody>
+          <%= render @subjects %>
+        </tbody>
+      </table>
+      <p><%= will_paginate @subjects, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %></p>
+      <p><%= link_to t("views.subjects.new.new_subject"), new_subject_path, class: "btn btn-success" %></p>
+    </div>
+  </div>
+</form>

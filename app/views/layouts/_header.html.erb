@@ -10,20 +10,18 @@
       </li>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Subject">
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Subject">
 
-        <%= link_to (t "admin.layouts.header.subject"), subjects_path, class: "nav-link-text nav-link" %>
-      </li>
+            <%= link_to (t "admin.layouts.header.subject"), subjects_path, class: "nav-link-text nav-link" %>
+          </li>
 
-      <li class="nav-item" data-toggle="tooltip" data-placement="right">
-          <%= link_to admin_root_path, class: "nav-link" do %>
-            <i class="fa fa-fw fa-dashboard"></i><%= t"layouts.header.all_users " %>
-          <% end %>
-        </li>
-          <% end %>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right">
+            <%= link_to admin_root_path, class: "nav-link" do %>
+              <i class="fa fa-fw fa-dashboard"></i><%= t "layouts.header.all_users " %>
+            <% end %>
+          </li>
         <% end %>
-    </ul>
-
+      <% end %>
     </ul>
 
     <ul class="navbar-nav ml-auto">
@@ -65,7 +63,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to(t(".logout"), destroy_user_session_path, class: "nav-link",  method: :delete) %>
+          <%= link_to(t(".logout"), destroy_user_session_path, class: "nav-link", method: :delete) %>
         </li>
       <% end %>
     </ul>

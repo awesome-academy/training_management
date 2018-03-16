@@ -83,13 +83,18 @@ en:
 
     subjects:
      new:
-      success: "Finish Create Subject"
-      subject_name: "Subject Name"
+      subject_update: "Successfully update subject"
+      subject_destroy: "Successfully destroy subject"
+      success: "Success"
+      success_create: "Finish Create Subject"
+      success_fail: "Create Fail"
+      subject_name: "Subject Name: "
       subject_list: "Subject List"
       action: "Action"
       show: "Show"
       edit_subject: "Edit"
       destroy_subject: "Destroy"
+      destroy_fail: "Destroy Fail"
       mess_subject: "Are you sure.. ?"
       new_subject: "New Subject"
       back_list: "Back to List"
@@ -97,3 +102,4 @@ en:
       remove: "Remove"
       add_task: "Add Task"
       submit: "Submit"
+      view_all: "View All"
