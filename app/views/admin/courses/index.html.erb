@@ -1,20 +1,2 @@
-<h1 class="center"><%= t ".all_courses" %></h1>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <td><%= t ".start_date" %></td>
-        <td><%= t ".course_name" %></td>
-        <td><%= t ".trainee_number" %></td>
-        <td><%= t ".end_date" %></td>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @courses %>
-    </tbody>
-    <div>
-  </table>
-  <div>
-    <%= link_to (t".create_course"), new_admin_course_url, class: "btn btn-success" %>
-  </div>
-</div>
+<%= render "/share/courses/index" %>
+<%= link_to (t ".new_course"), new_admin_course_path, class: "btn" %>
