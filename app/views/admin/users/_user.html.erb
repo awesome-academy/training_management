@@ -1,5 +1,8 @@
 <tr>
-   <td><%= user.email %></td>
-   <td><%= user.role %></td>
-   <td><%= link_to (t"admin.users.new.delete"), admin_user_path(user), method: :delete %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td>
+      <%= link_to (t"admin.users.new.delete"),admin_user_path(user),
+        method: :delete, data: { confirm: "You sure?"} %>
+  </td>
 </tr>

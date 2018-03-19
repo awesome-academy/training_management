@@ -6,4 +6,6 @@ class Course < ApplicationRecord
 
   accepts_nested_attributes_for :course_subjects,
   	reject_if: lambda {|a| a[:subject_id].blank?}, allow_destroy: true
+
+  accepts_nested_attributes_for :user_courses, allow_destroy: true
 end

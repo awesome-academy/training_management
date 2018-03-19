@@ -1,0 +1,23 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t "admin.subjects.index.dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= t "admin.subjects.index.subject_list" %></li>
+</ol>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <td><%= t "admin.subjects.index.subject_name" %></th>
+    <td></th>
+    <td><%= t "admin.subjects.index.action" %></th>
+    <td></th>
+  </tr>
+  </thead>
+    <tbody>
+    <%= render @subjects %>
+  </tbody>
+</table>
+
+<p><%= will_paginate @subjects %></p>
+<p><%= link_to (t "admin.subjects.index.new_subject"), new_admin_subject_path, class: "btn btn-success" %></p>
