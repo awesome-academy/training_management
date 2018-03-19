@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+class Admin::CoursesController < ApplicationController
   before_action :find_course, only: [:show, :update, :edit]
 
   def index
@@ -17,13 +17,16 @@ class CoursesController < ApplicationController
 
     if @course.save
       flash[:success] = (t ".success")
-      redirect_to course_url @course
+      redirect_to admin_course_url @course
     else
-      redirect_to root_path
+      redirect_to admin_root_path
     end
   end
 
   def show
+    User.trainee.each do |user|
+      @course.user_courses.new user: user
+    end
   end
 
   def edit
@@ -35,13 +38,12 @@ class CoursesController < ApplicationController
   def update
     if @course.update_attributes course_params
       flash[:success] = (t ".success")
-      redirect_to course_url @course
+      redirect_to admin_course_url @course
     else
       flash[:warning] = (t ".failed")
-      redirect_to edit_course_path
+      redirect_to edit_admin_course_path
     end
   end
-
 
   def destroy
   end
@@ -52,11 +54,12 @@ class CoursesController < ApplicationController
     @course = Course.find_by id: params[:id]
     return if @course
       flash[:warning] = t ".not_found"
-      redirect_to new_course_path
+      redirect_to new_admin_course_path
   end
 
   def course_params
     params.require(:course).permit :course_name, :start_date, :end_date,
-                                   course_subjects_attributes: [:id, :subject_id, :_destroy]
+                                   course_subjects_attributes: [:id, :subject_id, :_destroy],
+                                   user_courses_attributes: [:id, :user_id, :_destroy]
   end
 end

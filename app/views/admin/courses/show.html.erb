@@ -1,30 +1,88 @@
 <div class="row">
   <h1 class="center"><%= @course.course_name %></h1>
-  <h4 class="center"><%= t ".start_date" %><%= l @course.start_date, format: :date_month_year_concise if @course.start_date %></h4>
-  <h4 class="center"><%= t ".end_date" %><%= l @course.end_date, format: :date_month_year_concise if @course.end_date %></h4>
+  <h4 class="center"><%= t ".start_date " %><%= l @course.start_date, format: :date_month_year_concise if @course.start_date %></h4>
+  <h4 class="center"><%= t ".end_date " %><%= l @course.end_date, format: :date_month_year_concise if @course.end_date %></h4>
 </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModalLong">
+  <%= t "add_trainees" %>
+</button>
+
 <div class="row">
-  <h4><%= t ".subjects" %></h4>
-  <ul>
-    <% @course.subjects.each do |sb| %>
-      <li>
-        <div class="subjects">
-          <%= sb.subject_name %>
-          <div class="dropdown btn-show-tasks">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= t ".show_detail" %>
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <% sb.tasks.each do |t| %>
-                <li><%= t.task_name %></li>
-              <% end %>
-            </ul>
-          </div>  
+  <div class="col-md-12">
+    <h4><%= t ".subjects" %></h4>
+    <ul>
+      <% @course.subjects.each do |sb| %>
+        <li>
+          <div class="subjects">
+            <%= sb.subject_name %>
+            <div class="dropdown btn-show-tasks">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= t ".show_detail" %>
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <% sb.tasks.each do |t| %>
+                  <li><%= t.task_name %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <hr />
+        </li>
+      <% end %>
+    </ul>
+    <h4><%= t ".Trainees" %></h4>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th><%= t"admin.users.index.email" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @course.users.each do |uc| %>
+          <tr>
+            <td><%= uc.email %></td>
+          </tr>
+      <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to (t ".back"), admin_courses_path, class: "" %>
+    <%= link_to (t ".edit"), edit_admin_course_path, class: "" %>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <%= form_for [:admin, @course] do |f| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Asign Trainees</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div class="row">
-  <%= link_to (t ".back"), courses_path, class: "" %>
-  <%= link_to (t ".edit"), edit_course_path, class: "" %>
+        <div class="modal-body">
+          <div class="">
+            <%= f.fields_for :user_courses do |ff| %>
+              <div class="">
+                <%= ff.hidden_field :id %>
+                <%= ff.hidden_field :user_id %>
+                <%= ff.label :_destroy do %>
+                  <%= ff.check_box :_destroy, {checked: ff.object.persisted?}, 0, 1 %><%= ff.object.email %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
