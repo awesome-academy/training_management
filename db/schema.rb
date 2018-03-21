@@ -37,22 +37,22 @@ ActiveRecord::Schema.define(version: 20180226135532) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "subjects_id"
-    t.string "task_name"
     t.integer "subject_id"
+    t.string "task_name"
+    t.integer "time_day"
+    t.datetime "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
-    t.index ["subjects_id"], name: "index_tasks_on_subjects_id"
   end
 
   create_table "user_courses", force: :cascade do |t|
-    t.integer "courses_id"
-    t.integer "users_id"
+    t.integer "course_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_user_courses_on_courses_id"
-    t.index ["users_id"], name: "index_user_courses_on_users_id"
+    t.index ["course_id"], name: "index_user_courses_on_course_id"
+    t.index ["user_id"], name: "index_user_courses_on_user_id"
   end
 
   create_table "user_subjects", force: :cascade do |t|
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20180226135532) do
   end
 
   create_table "user_tasks", force: :cascade do |t|
-    t.integer "tasks_id"
-    t.integer "users_id"
+    t.integer "task_id"
+    t.integer "user_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tasks_id"], name: "index_user_tasks_on_tasks_id"
-    t.index ["users_id"], name: "index_user_tasks_on_users_id"
+    t.index ["task_id"], name: "index_user_tasks_on_task_id"
+    t.index ["user_id"], name: "index_user_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

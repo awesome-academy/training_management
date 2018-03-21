@@ -5,6 +5,8 @@
     </td>
 
     <td class="col-xs-8 text-center"><%= task.task_name %></td>
+    <td class="col-xs-8 text-center"><%= task.time_day %></td>
+    <td class="col-xs-8 text-center"><%= l task.start_date, format: :date_month_year_concise %></td>
     <td class="col-xs-2 text-center">
       <%= link_to (t "admin.subjects.new.edit_subject"), edit_subject_path(@subject), class: "btn btn-primary" %>
     </td>

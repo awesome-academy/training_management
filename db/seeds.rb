@@ -6,9 +6,9 @@ Subject.create subject_name: "rails"
 Subject.create subject_name: "Agile"
 
 Subject.all.each do |sb|
-  sb.tasks.create task_name: "Task 1"
-  sb.tasks.create task_name: "Task 2"
-  sb.tasks.create task_name: "Task 3"
+  sb.tasks.create task_name: "Task 1", time_day: 3, start_date: "22/12/2018"
+  sb.tasks.create task_name: "Task 2", time_day: 3, start_date: "22/12/2018"
+  sb.tasks.create task_name: "Task 3", time_day: 3, start_date: "22/12/2018"
 end
 
 User.create email: "minhtu12394@gmail.com", role: 0, password: "123456789", password_confirmation: "123456789"

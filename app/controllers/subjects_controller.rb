@@ -50,7 +50,7 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit :subject_name, tasks_attributes: [:id, :task_name, :_destroy]
+    params.require(:subject).permit :subject_name, tasks_attributes: [:id, :task_name, :_destroy, :time_day, :start_date]
   end
 
   def find_subject
