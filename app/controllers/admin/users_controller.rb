@@ -3,11 +3,14 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
-    @trainees = User.trainee.all
+    if params[:email]
+      @users = User.search_email(params[:email]).paginate page: params[:page], per_page: Settings.page.maximum
+    else
+      @users = User.all.paginate page: params[:page], per_page: Settings.page.maximum
+    end
   end
 
   def show
-
   end
 
   def new
@@ -34,7 +37,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-
   def find_user
     @user = User.find_by id: params[:id]
     return if @user
