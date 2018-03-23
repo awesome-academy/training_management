@@ -1,3 +1,6 @@
+user:
+  trainee_param: "trainee_page"
+  trainer_param: "trainer_page"
 email:
   maximum: 255
 page:

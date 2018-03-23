@@ -69,7 +69,7 @@ en:
       show:
         start_date: "Start date: "
         end_date: "End date: "
-        subjects: "Subjects: "
+        subjects: "Subjects "
         not_found: "Not found course with id: "
         back: "Show all courses"
         edit: "Edit course"
@@ -103,6 +103,9 @@ en:
         new_subject: "New Subject"
         subject_name: "Subject Name: "
         action: "Action"
+    user_courses:
+      edit:
+        save: "Save"
 
   layouts:
     header:

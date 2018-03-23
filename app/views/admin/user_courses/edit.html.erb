@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="table-responsive">
+    <h3><%= t "users_on_course" %></h3>
+    <%= form_for @course, url: admin_course_user_courses_path, method: :patch do |f| %>
+      <table class="table table-bordred table-striped">
+        <thead>
+          <th><input type="checkbox" class="checkall" /></th>
+          <th><%= t "view.supervisor.user.index.email" %></th>
+          <th><%= t "view.supervisor.user.index.role" %></th>
+        </thead>
+        <tbody>
+          <%= render partial: "trainees_on_course", locals: {f: f} %>
+          <%= render partial: "trainers_on_course", locals: {f: f} %>
+        </tbody>
+      </table>
+        <%= f.submit t(".save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

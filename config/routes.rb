@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     get "trainers", to: "users#index", as: :admin_users_path 
     get "trainers", to: "users#index"
     resources :users
-    resources :courses, :subjects
+    resources :subjects
+    resources :courses do
+      resource :user_courses, only: [:update, :edit]
+    end
   end
 
   namespace :trainee do
