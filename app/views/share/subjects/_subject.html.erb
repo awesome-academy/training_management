@@ -1,0 +1,7 @@
+<tr>
+  <td><li></li></td>
+  <td class="text-center"><%= subject.subject_name %></td>
+  <td class=" text-center"><%= link_to (t "admin.subjects.new.show"), subject, :class => "btn btn-info" %>
+    <%= link_to (t "admin.subjects.new.edit_subject"), edit_subject_path(subject), :class => "btn btn-primary" %>
+    <%= link_to (t "admin.subjects.new.destroy_subject"), subject, :confirm => (t "admin.subjects.new.mess_subject"), method: :delete, class: "btn btn-danger" %></td>
+</tr>

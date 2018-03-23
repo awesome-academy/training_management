@@ -12,4 +12,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.email.maximum},
   format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, allow_blank: true
+
+  scope :search_email, ->(email) { where("email like '%#{email}%'")}
+
 end
