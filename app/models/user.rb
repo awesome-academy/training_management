@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.email.maximum},
   format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, allow_blank: true
+
+  def self.search name
+    where("email LIKE '%#{name}%'")
+  end
 end

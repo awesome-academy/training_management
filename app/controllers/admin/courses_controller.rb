@@ -1,5 +1,5 @@
 class Admin::CoursesController < ApplicationController
-  before_action :find_course, only: [:show, :update, :edit]
+  before_action :find_course, only: [:show, :update, :edit, :destroy]
 
   def index
     @courses = Course.all.order(:course_name).paginate(page: params[:page], per_page: Settings.page.maximum)
@@ -19,7 +19,7 @@ class Admin::CoursesController < ApplicationController
       flash[:success] = (t ".success")
       redirect_to admin_course_url @course
     else
-      redirect_to admin_root_path
+      render :new
     end
   end
 
@@ -37,15 +37,21 @@ class Admin::CoursesController < ApplicationController
 
   def update
     if @course.update_attributes course_params
-      flash[:success] = (t ".success")
-      redirect_to admin_course_url @course
+      flash[:success] = (t ".success_update")
+      redirect_to admin_course_url
     else
-      flash[:warning] = (t ".failed")
+      flash[:warning] = (t ".fail_update")
       redirect_to edit_admin_course_path
     end
   end
 
   def destroy
+    if @course.destroy
+      flash[:success] = (t ".success_delete")
+    else
+      flash[:success] = (t ".fail_delete")
+    end
+    redirect_to admin_course_path
   end
 
   private

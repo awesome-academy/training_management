@@ -24,6 +24,7 @@ en:
     all_users: "All Users"
 
   admin:
+
     users:
       index:
         newuser: "New User"
@@ -42,9 +43,8 @@ en:
         password: "Password"
         confirm: "Password Confirmation"
         delete: "Delete"
+
     courses:
-      update:
-        success: "Course updated"
       index:
         all_courses: "All Courses"
         trainee_number: "Number of trainee"
@@ -71,6 +71,11 @@ en:
         not_found: "Not found course with id: "
         back: "Show all courses"
         edit: "Edit course"
+      update:
+        success_update: "Course updated"
+      destroy:
+        fail_delete: "Course deleted"
+
     subjects:
       new:
         subject_destroy: "Successfully destroy subject"
