@@ -1,4 +1,5 @@
 class Admin::SubjectsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_subject, only: [:update, :show]
 
   def index
@@ -22,7 +23,7 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update

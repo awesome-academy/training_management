@@ -1,4 +1,5 @@
 class Admin::CoursesController < ApplicationController
+  load_and_authorize_resource
   before_action :find_course, only: [:show, :update, :edit, :destroy]
   before_action :load_trainers, :load_trainees, only: [:show, :update]
 
