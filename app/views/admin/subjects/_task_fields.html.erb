@@ -1,6 +1,10 @@
 <p class="fields">
   <%= f.label :task_name, (t "admin.subjects.new.task") %>
   <%= f.text_field :task_name %>
+  <%= f.label :time_day, (t "admin.subjects.new.time_day") %>
+  <%= f.text_field :time_day %>
+  <%= f.label :start_date, (t "admin.subjects.new.start_day") %>
+  <%= f.date_field :start_date %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to (t "admin.subjects.new.remove"), "#", class: "remove_fields" %>
+  <%= link_to (t "admin.subjects.new.remove"), "#", class: "remove_fields btn btn-danger" %>
 </p>
