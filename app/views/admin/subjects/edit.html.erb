@@ -1,6 +1,6 @@
-<%= render "form" %>
+<%= render :partial => "form" %>
 
 <p>
-  <%= link_to t("admin.subjects.new.show"), @subject %> |
-  <%= link_to t("admin.subjects.new.view_all"), subjects_path %>
+  <%= link_to t("admin.subjects.new.show"), [:admin, @subject], class: "btn btn-success" %>
+  <%= link_to t("admin.subjects.new.view_all"), admin_subjects_path, class: "btn btn-info" %>
 </p>
