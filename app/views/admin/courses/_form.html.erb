@@ -27,16 +27,7 @@
     <% end %>
   </div>
 
-  <div class="">
-    <%= f.fields_for :user_courses do |ff| %>
-      <div class="">
-        <%= ff.hidden_field :user_id %>
-        <%= ff.label :_destroy do %>
-          <%= ff.check_box :_destroy %><%= ff.object.email %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+
 
   </div>
   <%= f.submit (t".submit"), class: "btn" %>

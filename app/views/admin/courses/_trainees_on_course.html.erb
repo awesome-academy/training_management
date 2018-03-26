@@ -1,0 +1,17 @@
+<div class="table-responsive">
+  <h3><%= t ".trainees_on_course" %></h3>
+  <table class="table table-bordered">
+    <thead>
+      <th><%= t"admin.users.index.email" %></th>
+      <th><%= t"admin.users.index.role" %></th>
+    </thead>
+    <tbody>
+      <% @course.users.trainee.each do |trainee| %>
+        <tr>
+          <td><%= link_to trainee.email, "#" %></td>
+          <td><%= trainee.role %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
   before_action :find_course, only: [:show, :update, :edit, :destroy]
+  before_action :load_trainers, :load_trainees, only: [:show, :update]
 
   def index
     @courses = Course.all.order(:course_name).paginate(page: params[:page], per_page: Settings.page.maximum)
@@ -14,7 +15,6 @@ class Admin::CoursesController < ApplicationController
 
   def create
     @course = Course.new course_params
-
     if @course.save
       flash[:success] = (t ".success")
       redirect_to admin_course_url @course
@@ -24,9 +24,6 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
-    User.trainee.each do |user|
-      @course.user_courses.new user: user
-    end
   end
 
   def edit
@@ -67,5 +64,13 @@ class Admin::CoursesController < ApplicationController
     params.require(:course).permit :course_name, :start_date, :end_date,
                                    course_subjects_attributes: [:id, :subject_id, :_destroy],
                                    user_courses_attributes: [:id, :user_id, :_destroy]
+  end
+
+  def load_trainees
+    @trainees = @course.users.trainee
+  end
+
+  def load_trainers
+    @trainers = @course.users.trainer
   end
 end

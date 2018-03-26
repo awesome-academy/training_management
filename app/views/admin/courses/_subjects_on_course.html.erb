@@ -1,0 +1,16 @@
+<div class="table-responsive">
+  <h3><%= t "admin.course.show.subjects_on_course" %></h3>
+  <table class="table table-bordered">
+    <thead>
+      <th><%= t"admin.course.show.subject_name" %></th>
+    </thead>
+    <tbody>
+      <% @course.subjects.each do |subject| %>
+        <tr>
+          <td><%= link_to subject.subject_name, "#" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

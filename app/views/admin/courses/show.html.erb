@@ -1,39 +1,45 @@
-<%= render "/share/courses/show" %>
-<div class="row">
-  <%= link_to (t ".back"), admin_courses_path, class: "btn" %>
-  <%= link_to (t ".edit"), edit_admin_course_path, class: "btn" %>
-  <%= link_to (t ".delete"), [:admin, @course],  
-    method: "delete", data: { confirm: (t ".sure"), disable_with: 'loading...' }, class: "btn" %>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <%= form_for [:admin, @course] do |f| %>
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Asign Trainees</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="">
-            <%= f.fields_for :user_courses do |ff| %>
-              <div class="">
-                <%= ff.hidden_field :id %>
-                <%= ff.hidden_field :user_id %>
-                <%= ff.label :_destroy do %>
-                  <%= ff.check_box :_destroy, {checked: ff.object.persisted?}, 0, 1 %><%= ff.object.email %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      <% end %>
+<div class="col-md-8">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="subjects-tab" data-toggle="tab" href="#subjects"
+        role="tab" aria-controls="subjects" aria-selected="true">
+        <%= t ".subjects" %>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="trainees-tab" data-toggle="tab" href="#trainees"
+        role="tab" aria-controls="trainees" aria-selected="false">
+        <%= t ".trainees" %>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="trainers-tab" data-toggle="tab" href="#trainers"
+        role="tab" aria-controls="trainers" aria-selected="false">
+        <%= t ".trainers" %>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="subjects" role="tabpanel" aria-labelledby="subjects-tab">
+      <%= render partial: "subjects_on_course", local: {subjects: @subjects} %>
     </div>
+    <div class="tab-pane fade" id="trainees" role="tabpanel" aria-labelledby="trainees-tab">
+      <%= render partial: "trainees_on_course", local: {trainees: @trainees} %>
+    </div>
+    <div class="tab-pane fade" id="trainers" role="tabpanel" aria-labelledby="trainers-tab">
+      <%= render partial: "trainers_on_course", local: {trainers: @trainers} %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to (t ".back"), admin_courses_path, class: "btn btn-primary" %>
+    <%= link_to (t ".edit"), edit_admin_course_path, class: "btn btn-primary" %>
+    <%= link_to (t ".delete"), [:admin, @course],
+    method: "delete", data: { confirm: (t ".sure"), disable_with: 'loading...' }, class: "btn btn-primary" %>
+    <%= link_to t("view.admin.course.show.add_user_to_course"),
+      edit_admin_course_user_courses_path(@course),
+    class: "btn btn-primary"%>
+
   </div>
 </div>
