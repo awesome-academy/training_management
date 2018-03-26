@@ -3,6 +3,6 @@
   <td><%= user.role %></td>
   <td>
       <%= link_to (t"admin.users.new.delete"),admin_user_path(user),
-        method: :delete, data: { confirm: "You sure?"} %>
+        method: :delete, data: { confirm: "You sure?"} unless user.admin? %>
   </td>
 </tr>

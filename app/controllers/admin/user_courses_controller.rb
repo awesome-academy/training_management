@@ -1,4 +1,5 @@
 class Admin::UserCoursesController < ApplicationController
+  load_and_authorize_resource :course
   before_action :find_course
 
   def edit
