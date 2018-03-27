@@ -20,6 +20,7 @@ class Admin::CoursesController < ApplicationController
       flash[:success] = (t ".success")
       redirect_to admin_course_url @course
     else
+      flash[:warning] = (t ".fail")
       render :new
     end
   end

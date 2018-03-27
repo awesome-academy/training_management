@@ -2,7 +2,7 @@
   <div class="card card-register mx-auto mt-5">
     <div class="card-header"><%= t "admin.users.new.create_user"  %></div>
     <div class="card-body">
-      <%= form_for [:admin, @user] do |f| %>
+      <%= form_for [:trainee, @user] do |f| %>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "user@exlample.com",
@@ -11,22 +11,18 @@
 
         <div class="form-group">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", placeholder: (t "admin.users.new.password"),
+          <%= f.password_field :password, autocomplete: "off", placeholder: (t "trainee.users.new.password"),
            class: "form-control", id: "exampleInputPassword1" %>
         </div>
 
         <div class="form-group">
           <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: (t "admin.users.new.confirm"),
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: (t "trainee.users.new.confirm"),
             class: "form-control", id: "exampleConfirmPassword"%>
         </div>
 
-        <div class="form-group">
-          <%= f.label :role %><br />
-          <%= f.select :role, User.roles.keys.to_a, class: "form-control" %>
-        </div>
         <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-        <%= link_to (t "admin.subjects.new.back_list"), admin_users_path, class: "btn btn-primary" %></p>
+        <%= link_to (t "trainee.subjects.new.back_list"), trainee_users_path, class: "btn btn-primary" %></p>
       <% end %>
     </div>
   </div>

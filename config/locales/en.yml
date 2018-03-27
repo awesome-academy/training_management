@@ -14,17 +14,18 @@ en:
     forgot_password: "Forgot Password?"
 
   layouts:
-   header:
-    dashboard: "Dashboard"
-    logo: "Admin"
-    messages: "Messages"
-    alerts: "Alerts"
-    new_alerts: "New Alerts:"
-    logout: "Logout"
-    all_users: "All Users"
+    header:
+      dashboard: "Dashboard"
+      subject: "Subject"
+      logo: "Trainning Managerment"
+      messages: "Messages"
+      alerts: "Alerts"
+      new alerts: "New Alerts"
+      logout: "Logout"
+      course: "Course"
+      all_users: "All users"
 
   admin:
-
     users:
       index:
         newuser: "New User"
@@ -45,7 +46,14 @@ en:
         password: "Password"
         confirm: "Password Confirmation"
         delete: "Delete"
-
+        createbutton: "Create User"
+      edit:
+        updatebutton: "Update"
+      create:
+        create_success: "Finish Create User"
+      destroy:
+        destroy_success: "Successfully destroy user"
+        destroy_fail: "Destroy Fail"
     courses:
       index:
         all_courses: "All Courses"
@@ -75,8 +83,10 @@ en:
         edit: "Edit course"
       update:
         success_update: "Course updated"
+        fail_update: "Course update fail"
       destroy:
-        fail_delete: "Course deleted"
+        fail_delete: "Deleted course fail"
+        success_delete: "Course deleted"
 
     subjects:
       new:
@@ -108,19 +118,10 @@ en:
     user_courses:
       edit:
         save: "Save"
-
-  layouts:
-    header:
-      dashboard: "Dashboard"
-      subject: "Subject"
-      logo: "Admin"
-      messages: "Messages"
-      alerts: "Alerts"
-      new alerts: "New Alerts:"
-      logout: "Logout"
-      course: "Course"
-      all_users: "All users"
-
+  trainee:
+    users:
+      update_success: "Successfully update information"
+      danger: ""
   static_pages:
    home:
     student: "Student"
