@@ -20,6 +20,7 @@ class Trainee::UsersController < ApplicationController
       flash[:success] = t ".update_success", object_name: User.name
       redirect_to trainee_user_path
     else
+      flash[:danger] = t ".update_fail"
       render :edit
     end
   end

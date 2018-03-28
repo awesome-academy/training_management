@@ -1,2 +1,8 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t ".dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= t ".courses" %></li>
+</ol>
 <%= render "/share/courses/index" %>
 <%= link_to (t ".new_course"), new_admin_course_path, class: "btn btn-primary" %>

@@ -1,3 +1,11 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t ".dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= link_to (t ".subject_list"), admin_subjects_path %></li>
+  <li class="breadcrumb-item active"><%= (t ".show") %></li>
+</ol>
+
 <form class="form-horizontal">
   <div class="card mb-3">
     <div class="card-header">

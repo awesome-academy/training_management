@@ -1,2 +1,10 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to (t ".dashboard"), root_path %>
+  </li>
+  <li class="breadcrumb-item active"><%= link_to (t ".users"), admin_users_path %></li>
+  <li class="breadcrumb-item active"><%= t ".edit_title" %></li>
+</ol>
 <% provide :button_text, t(".updatebutton") %>
+<% provide :title, t(".edit_title") %>
 <%= render "form" %>

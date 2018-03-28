@@ -2,8 +2,8 @@
   <td><%= user.email %></td>
   <td><%= user.role %></td>
   <td>
-      <%= link_to (t"admin.users.new.delete"),admin_user_path(user),
+      <%= link_to (t".delete"),admin_user_path(user),
         method: :delete, data: { confirm: "You sure?"} unless user.admin? %>
-       <%= link_to (t"admin.users.new.edit"),edit_admin_user_path(user) %>
+       <%= link_to (t".edit"),edit_admin_user_path(user) %>
   </td>
 </tr>

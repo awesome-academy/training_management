@@ -13,7 +13,7 @@ class Admin::UserCoursesController < ApplicationController
       flash[:success] = t ".success"
       redirect_to admin_course_url @course
     else
-      flash[:error] = t ".error"
+      flash[:error] = t ".fail"
       render :edit
     end
   end

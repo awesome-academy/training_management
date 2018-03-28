@@ -24,9 +24,18 @@ en:
       logout: "Logout"
       course: "Course"
       all_users: "All users"
+      account: "Account"
+      profile: "Profile"
+      setting: "Setting"
 
   admin:
     users:
+      user:
+        delete: "Delete"
+        edit: "Edit"
+      show:
+        email: "Email address: "
+        role: "Your role: "
       index:
         newuser: "New User"
         success: "Success"
@@ -47,14 +56,25 @@ en:
         confirm: "Password Confirmation"
         delete: "Delete"
         createbutton: "Create User"
+        new_title: "New User"
+        users: "Users"
       edit:
         updatebutton: "Update"
+        edit_title: "Edit User"
       create:
-        create_success: "Finish Create User"
+        create_success: "Successfully create user"
+        create_fail: "Create user fail"
       destroy:
         destroy_success: "Successfully destroy user"
-        destroy_fail: "Destroy Fail"
+        destroy_fail: "Destroy user fail"
+      update:
+        update_success: "Successfully update user"
+        update_fail: "Update user fail"
     courses:
+      form:
+        course_name: "Course name"
+        start_date: "Start Date"
+
       index:
         all_courses: "All Courses"
         trainee_number: "Number of trainee"
@@ -62,6 +82,8 @@ en:
         end_date: "End date"
         create_course: "Create course"
         course_name: "Course name"
+        dashboard: "Dashboard"
+        courses: "Courses"
       new:
         start_date: "Start date"
         end_date: "End date"
@@ -72,8 +94,8 @@ en:
         end_date: "End date"
         submit: "Create course"
       create:
-        success: "Success"
-        fail: "Update failed"
+        success: "Create course success"
+        fail: "Create course fail"
       show:
         start_date: "Start date: "
         end_date: "End date: "
@@ -115,13 +137,61 @@ en:
         new_subject: "New Subject"
         subject_name: "Subject Name: "
         action: "Action"
+      create:
+        success_create: "Successfully create subject"
+        success_fail: "Create subject fail"
+      update:
+        success_update: "Successfully update subject"
+        update_fail: "Update subject fail"
+      destroy:
+        success_destroy: "Successfully destroy subject"
+        destroy_fail: "Destroy subject fail"
+      show:
+        dashboard: "Dashboard"
+        subject_list: "Subject List"
+        show: "Task"
+      edit:
+        edit: "Edit task"
+        show: "Task"
     user_courses:
       edit:
         save: "Save"
+      update:
+        success: "Successfully update User"
+        fail: "Update user fail"
   trainee:
     users:
-      update_success: "Successfully update information"
-      danger: ""
+      update:
+        update_success: "Successfully update information"
+        update_fail: "Update"
+      edit:
+        edit_title: "Edit user"
+        updatebutton: "Update"
+      form:
+        email: "user@example.com"
+        password: "Password"
+        confirm: "Confirmation"
+        back: "Back"
+      show:
+        email: "Email address: "
+        role: "Your role: "
+  trainer:
+    users:
+      update:
+        update_success: "Successfully update information"
+        update_fail: "Update"
+      edit:
+        edit_title: "Edit user"
+        updatebutton: "Update"
+      form:
+        email: "user@example.com"
+        password: "Password"
+        confirm: "Confirmation"
+        back: "Back"
+      show:
+        email: "Email address: "
+        role: "Your role: "
+
   static_pages:
    home:
     student: "Student"

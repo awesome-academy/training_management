@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card card-register mx-auto mt-5">
-    <div class="card-header"><%= t "admin.users.new.create_user"  %></div>
+    <div class="card-header"><%= yield(:title) %></div>
     <div class="card-body">
       <%= form_for [:trainer, @user] do |f| %>
         <div class="form-group">
@@ -22,7 +22,7 @@
         </div>
 
         <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-        <%= link_to (t "trainer.subjects.new.back_list"), trainer_users_path, class: "btn btn-primary" %></p>
+        <%= link_to (t ".back"), trainer_users_path, class: "btn btn-primary" %></p>
       <% end %>
     </div>
   </div>

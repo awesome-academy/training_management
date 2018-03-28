@@ -2,8 +2,10 @@
   <li class="breadcrumb-item">
     <%= link_to (t "layouts.header.dashboard"), root_path %>
   </li>
+  <li class="breadcrumb-item active"><%= link_to (t ".users"), admin_users_path %></li>
   <li class="breadcrumb-item active"><%= t "admin.users.new.create_user" %></li>
 </ol>
 <% provide :button_text, t(".createbutton") %>
+<% provide :title, t(".new_title") %>
 <%= render partial: "form" %>
 
