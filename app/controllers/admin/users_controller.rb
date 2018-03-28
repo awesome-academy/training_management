@@ -24,6 +24,7 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_root_path
       flash[:success] = t ".create_success"
     else
+      flash[:danger] = t ".create_fail"
       render :new
     end
   end
@@ -42,6 +43,7 @@ class Admin::UsersController < ApplicationController
       flash[:success] = t ".update_success", object_name: User.name
       redirect_to admin_users_path
     else
+      flash[:danger] = t ".update_fail"
       render :edit
     end
   end
