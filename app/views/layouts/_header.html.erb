@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <%= link_to (t ".logo"), root_path, :class => "navbar-brand" %>
+  <%= link_to (t ".logo"), root_path, class: "navbar-brand" %>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -62,22 +62,51 @@
         </div>
       </li>
 
-      <li class="nav-item">
-        <form class="form-inline my-2 my-lg-0 mr-lg-2">
-          <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for...">
-            <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-          </div>
-        </form>
-      </li>
 
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to(t(".logout"), destroy_user_session_path, class: "nav-link", method: :delete) %>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+            <%= t "view.layout.account" %><b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to t("view.layout.logout"), destroy_user_session_path,
+                class: "dropdown-item",method: :delete %>
+            </li>
+
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to t("view.layout.profile"), admin_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+
+              <li>
+                <%= link_to t("view.layout.setting"), edit_admin_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+            <% elsif current_user.trainee? %>
+              <li>
+                <%= link_to t("view.layout.profile"), trainee_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+
+              <li>
+                <%= link_to t("view.layout.setting"), edit_trainee_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+            <% else %>
+               <li>
+                <%= link_to t("view.layout.profile"), trainer_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+
+              <li>
+                <%= link_to t("view.layout.setting"), edit_trainer_user_path(current_user),
+                  class: "dropdown-item" %>
+              </li>
+            <% end %>
+            <li class="divider"></li>
+          </ul>
         </li>
       <% end %>
     </ul>

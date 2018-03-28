@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :subjects
 
   namespace :admin do
-    root "admin#index"
-    get "trainers", to: "users#index", as: :admin_users_path 
-    get "trainers", to: "users#index"
+    root "users#index"
+    # get "trainers", to: "users#index", as: :admin_users_path
+    # get "trainers", to: "users#index"
     resources :users
     resources :subjects
     resources :courses do
@@ -19,9 +19,21 @@ Rails.application.routes.draw do
   end
 
   namespace :trainee do
-    root "trainees#index"
+    root "users#index"
     resources :users
-    resources :courses, :subjects
+    resources :subjectsus
+    resources :courses do
+      resource :user_courses, only: [:update, :edit]
+    end
+
   end
 
+  namespace :trainer do
+    root "users#index"
+    resources :users
+    resources :subjects
+    resources :courses do
+      resource :user_courses, only: [:update, :edit]
+    end
+  end
 end

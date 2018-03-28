@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :find_user, only: [:destroy]
+  before_action :find_user, only: [:destroy, :show]
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       redirect_to admin_root_path
-      flash[:success] = t ".success"
+      flash[:success] = t ".create_success"
     else
       render :new
     end
@@ -30,11 +30,20 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = t ".success"
+      flash[:success] = t ".destroy_success"
     else
-      flash[:danger] = t ".danger"
+      flash[:danger] = t ".destroy_fail"
     end
     redirect_to admin_root_path
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t ".update_success", object_name: User.name
+      redirect_to admin_users_path
+    else
+      render :edit
+    end
   end
 
   private
