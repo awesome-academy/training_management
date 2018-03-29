@@ -211,3 +211,8 @@ en:
         start_date: "Start date"
         end_date: "End date"
         course_name: "Course name"
+  trainees:
+    my_course: "My Course"
+    status: "Status:"
+    subject_in_course: "Subjects in Course"
+    task_in_subject: "Task in Subject"
