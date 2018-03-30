@@ -12,8 +12,7 @@ class User < ApplicationRecord
   scope :not_in_course, -> (course_id) do
     where("users.id NOT IN
       (SELECT user_id FROM user_courses
-      JOIN courses ON course_id = courses.id
-      WHERE courses.id IS NOT :course_id)", course_id: course_id)
+        WHERE course_id = :course_id)", course_id: course_id)
   end
 
   before_save {self.email = email.downcase}

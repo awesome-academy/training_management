@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 20180226135532) do
     t.index ["user_id"], name: "index_user_courses_on_user_id"
   end
 
-  create_table "user_subjects", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_user_subjects_on_subject_id"
-    t.index ["user_id"], name: "index_user_subjects_on_user_id"
-  end
-
   create_table "user_tasks", force: :cascade do |t|
     t.integer "task_id"
     t.integer "user_id"

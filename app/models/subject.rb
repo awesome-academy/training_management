@@ -1,8 +1,8 @@
 class Subject < ApplicationRecord
   has_many :tasks, dependent: :destroy
-  has_many :user_subjects
+  # has_many :user_subjects, dependent: :destroy
   has_many :user, through: :user_subjects
-  has_many :course_subject
+  has_many :course_subject, dependent: :destroy
 
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
 
