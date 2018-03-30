@@ -45,7 +45,7 @@
     <%= link_to (t ".delete"), [:admin, @course],
     method: "delete", data: { confirm: (t ".sure"), disable_with: 'loading...' }, class: "btn btn-primary" %>
     <%= link_to t("view.admin.course.show.add_user_to_course"),
-      edit_admin_course_user_courses_path(@course),
+      new_admin_course_user_courses_path(@course),
     class: "btn btn-primary"%>
 
   </div>
