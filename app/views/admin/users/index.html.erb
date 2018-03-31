@@ -18,7 +18,7 @@
 
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered" id="dataTable">
         <thead>
           <tr>
             <th><%= t"admin.users.index.email" %></th>
@@ -31,7 +31,7 @@
         </tbody>
       </table>
     </div>
-    <p><%= will_paginate @users %></p>
+    <%= will_paginate @users %>
     <%= link_to (t "admin.users.index.create_user"), new_admin_user_url, class: "btn btn-primary" %>
   </div>
 </div>

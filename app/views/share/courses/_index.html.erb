@@ -1,16 +1,22 @@
-<h1 class="center"><%= t ".all-courses" %></h1>
-<div class="container">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <td><%= t "course.new.course_name" %></td>
-        <td><%= t ".trainee_number" %></td>
-        <td><%= t "course.new.start_date" %></td>
-        <td><%= t "course.new.end_date" %></td>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render partial: "share/courses/course", collection: @courses %>
-    </tbody>
-  </table>
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i> <%= t"layouts.header.all_users" %>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td><%= t ".course_name" %></td>
+            <td><%= t ".trainee_number" %></td>
+            <td><%= t ".start_date" %></td>
+            <td><%= t ".end_date" %></td>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "share/courses/course", collection: @courses %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

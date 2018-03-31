@@ -1,7 +1,7 @@
 class Admin::CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :find_course, only: [:show, :update, :edit, :destroy]
-  before_action :load_trainers, :load_trainees, only: [:show, :update]
+  before_action :load_trainers, :load_trainees, only: [:show, :update, :destroy, :edit]
 
   def index
     @courses = Course.all.order(:course_name).paginate(page: params[:page], per_page: Settings.page.maximum)
@@ -50,7 +50,7 @@ class Admin::CoursesController < ApplicationController
     else
       flash[:success] = (t ".fail_delete")
     end
-    redirect_to admin_course_path
+    redirect_to admin_courses_path
   end
 
   private

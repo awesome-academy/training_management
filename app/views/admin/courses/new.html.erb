@@ -2,6 +2,7 @@
   <li class="breadcrumb-item">
     <%= link_to (t "layouts.header.dashboard"), root_path %>
   </li>
-  <li class="breadcrumb-item active"><%= t ".create_user" %></li>
+  <li class="breadcrumb-item active"><%= t ".create_course" %></li>
 </ol>
+<% provide :button_text, t(".create_course") %>
 <%= render "form" %>

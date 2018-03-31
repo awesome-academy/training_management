@@ -33,6 +33,7 @@ en:
       user:
         delete: "Delete"
         edit: "Edit"
+        sure: "You sure?"
       show:
         email: "Email address: "
         role: "Your role: "
@@ -71,30 +72,29 @@ en:
         update_success: "Successfully update user"
         update_fail: "Update user fail"
     courses:
+      edit:
+        edit_course: "Edit course"
+        edit_button: "Save"
       form:
         course_name: "Course name"
         start_date: "Start Date"
 
       index:
-        all_courses: "All Courses"
-        trainee_number: "Number of trainee"
-        start_date: "Start date"
-        end_date: "End date"
         create_course: "Create course"
-        course_name: "Course name"
         dashboard: "Dashboard"
         courses: "Courses"
       new:
         start_date: "Start date"
         end_date: "End date"
         new_course: "New Course"
+        create_course: "Create course"
       form:
         course_name: "Course name"
         start_date: "Start date"
         end_date: "End date"
         submit: "Create course"
       create:
-        success: "Create course success"
+        success: "Successfully create subject"
         fail: "Create course fail"
       show:
         start_date: "Start date: "
@@ -104,24 +104,25 @@ en:
         back: "Show all courses"
         edit: "Edit course"
       update:
-        success_update: "Course updated"
-        fail_update: "Course update fail"
+        success_update: "Successfully updated course "
+        fail_update: "Update course fail"
       destroy:
+        success_delete: "Successfully delete course"
         fail_delete: "Deleted course fail"
-        success_delete: "Course deleted"
 
     subjects:
+      subject:
+        sure: "You sure?"
       new:
         subject_destroy: "Successfully destroy subject"
         subject_update: "Successfully update subject"
         success: "Success"
-        success_create: "Finish Create Subject"
-        success_fail: "Create Fail"
+        success_create: "Successfully create subject"
+        success_fail: "Create subject Fail"
         show: "Show"
         edit_subject: "Edit"
         destroy_subject: "Destroy"
         destroy_fail: "Destroy Fail"
-        mess_subject: "Are you sure.. ?"
         back_list: "Back to List"
         task: "Task:"
         time_day: "Day:"
@@ -154,11 +155,13 @@ en:
         edit: "Edit task"
         show: "Task"
     user_courses:
-      edit:
+      new:
         save: "Save"
-      update:
-        success: "Successfully update User"
-        fail: "Update user fail"
+        users_on_course: "All users"
+
+      create:
+        success: "Successfully added user"
+        error: "Add user fail"
   trainee:
     users:
       update:
@@ -179,7 +182,7 @@ en:
     users:
       update:
         update_success: "Successfully update information"
-        update_fail: "Update"
+        update_fail: "Update information fail"
       edit:
         edit_title: "Edit user"
         updatebutton: "Update"
@@ -200,3 +203,11 @@ en:
     course: "Course"
     subject: "Subject"
     trainer: "Trainer"
+  share:
+    courses:
+      index:
+        all_courses: "All Courses"
+        trainee_number: "Number of trainee"
+        start_date: "Start date"
+        end_date: "End date"
+        course_name: "Course name"
