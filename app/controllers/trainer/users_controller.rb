@@ -18,8 +18,9 @@ class Trainer::UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t ".update_success", object_name: User.name
-      redirect_to trainer_user_path
+      redirect_to trainer_root_path
     else
+      flash[:danger] = t ".update_fail"
       render :edit
     end
   end
