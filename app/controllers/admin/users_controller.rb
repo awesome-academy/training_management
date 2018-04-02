@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :find_user, only: [:destroy, :show]
+  before_action :find_user, only: [:destroy, :show, :update]
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
@@ -41,7 +41,7 @@ class Admin::UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t ".update_success", object_name: User.name
-      redirect_to admin_users_path
+      redirect_to admin_users_url
     else
       flash[:danger] = t ".update_fail"
       render :edit
@@ -57,6 +57,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete :password
+      params[:user].delete :password_confirmation
+    end
     params.require(:user).permit :email, :password, :password_confirmation, :role
   end
 end

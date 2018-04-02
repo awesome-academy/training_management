@@ -1,5 +1,5 @@
 class Trainer::UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit]
+  before_action :find_user, only: [:show, :edit, :update]
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
@@ -33,6 +33,10 @@ class Trainer::UsersController < ApplicationController
   end
 
   def user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete :password
+      params[:user].delete :password_confirmation
+    end
     params.require(:user).permit :email, :password, :password_confirmation
   end
 end
