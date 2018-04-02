@@ -199,6 +199,7 @@ en:
    home:
     student: "Student"
     my_dashboard: "My Dashboard"
+    my_courses: "My Courses"
     view_detail: "View Details"
     course: "Course"
     subject: "Subject"
