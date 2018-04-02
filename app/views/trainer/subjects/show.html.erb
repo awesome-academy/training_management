@@ -1,0 +1,20 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active"><%= link_to (t "trainees.my_course"), trainer_root_path %></li>
+  <li class="breadcrumb-item active"><%= link_to (t "static_pages.subject"), trainer_subjects_path %></li>
+  <li class="breadcrumb-item active"><%= (t "trainees.task_in_subject") %></li>
+</ol>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="col-xs-8 text-center"><%= t "admin.subjects.new.task" %></th>
+    <th class="col-xs-8 text-center"><%= t "admin.subjects.new.time_day" %></th>
+    <th class="col-xs-8 text-center"><%= t "admin.subjects.new.start_day" %></th>
+    <th class="col-xs-2 text-center"><%= t "trainees.status" %></th>
+  </tr>
+  </thead>
+  <tfoot>
+  <tbody>
+  <%= render "task_show" %>
+  </tbody>
+</table>

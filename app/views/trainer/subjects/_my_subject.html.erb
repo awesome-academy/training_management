@@ -1,0 +1,8 @@
+<% @user_courses.each do |course| %>
+  <% course.subjects.each do |s| %>
+    <tr>
+      <td class="col-xs-8 text-center"><%= s.subject_name %></td>
+      <td class="col-xs-2 text-center"></td>
+    </tr>
+  <% end %>
+<% end %>

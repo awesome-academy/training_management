@@ -12,6 +12,10 @@
             <%= link_to (t ".dashboard"), root_path, class: "nav-link-text nav-link" %>
           </li>
 
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <%= link_to (t ".dashboard"), root_path, class: "nav-link-text nav-link" %>
+          </li>
+
           <li class="nav-item" data-toggle="tooltip" data-placement="right">
             <%= link_to (t ".course"), admin_courses_path, class: "nav-link-text nav-link" %>
           </li>
@@ -28,6 +32,12 @@
         <% if current_user.trainee? %>
           <li class="nav-item" data-toggle="tooltip" data-placement="right">
             <%= link_to (t "trainees.my_course"), trainee_root_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+        <% if current_user.trainer? %>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right">
+            <%= link_to (t "static_pages.home.my_courses"), trainer_root_path, class: "nav-link" %>
           </li>
         <% end %>
       <% end %>
