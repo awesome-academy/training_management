@@ -3,6 +3,7 @@ class Trainee::UsersController < ApplicationController
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
+    @user_course = current_user.courses.paginate(page: params[:page], per_page: Settings.page.maximum)
   end
 
   def new
@@ -13,6 +14,7 @@ class Trainee::UsersController < ApplicationController
   end
 
   def show
+    @user_subject = current_user.courses.subject
   end
 
   def update

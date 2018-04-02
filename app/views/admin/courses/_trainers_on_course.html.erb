@@ -6,7 +6,7 @@
         <th><%= t"admin.users.index.role" %></th>
       </thead>
       <tbody>
-        <% @course.users.trainer.each do |trainer| %>
+        <% @course.users.trainers.each do |trainer| %>
           <tr>
             <td><%= link_to trainer.email, "#" %></td>
             <td><%= trainer.role %></td>

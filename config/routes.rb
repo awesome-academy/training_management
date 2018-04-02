@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   namespace :trainee do
     root "users#index"
     resources :users
-    resources :subjectsus
+    resources :subjects
     resources :courses do
       resource :user_courses, only: [:update, :edit]
     end
