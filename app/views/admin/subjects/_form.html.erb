@@ -1,4 +1,5 @@
-<%= form_for [:admin, @subject] do |f| %>
+  <%= form_for [:admin, @subject] do |f| %>
+  <%= render partial: "share/error_messages", locals: {object: @subject}, :formats => [:html]  %>
   <div class="form-group">
     <div class=".col-xs-6 .col-md-4">
       <%= f.label :subject_name, class: "control-label col-sm-2" %>

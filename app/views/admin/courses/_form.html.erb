@@ -1,4 +1,5 @@
 <%= form_for [:admin, @course] do |f| %>
+  <%= render partial: "share/error_messages", locals: {object: @course}, :formats => [:html]  %>
   <div class="">
     <div class="form-group">
       <%= f.label :course_name, (t ".course_name")%>

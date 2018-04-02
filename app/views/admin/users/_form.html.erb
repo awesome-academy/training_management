@@ -3,6 +3,7 @@
     <div class="card-header"><%= yield(:title) %></div>
     <div class="card-body">
       <%= form_for [:admin, @user] do |f| %>
+        <%= render partial: "share/error_messages", locals: {object: @user}, :formats => [:html]%>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "user@exlample.com",

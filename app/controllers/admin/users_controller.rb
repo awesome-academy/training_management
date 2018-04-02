@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :find_user, only: [:destroy, :show, :update]
+
+  before_action :find_user, only: [:destroy, :show, :update, :edit]
 
   def index
     @users = User.all.order(:role).paginate page: params[:page], per_page: Settings.page.maximum
@@ -16,6 +17,9 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def edit
   end
 
   def create
